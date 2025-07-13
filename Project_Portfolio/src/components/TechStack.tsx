@@ -6,7 +6,6 @@ import { DiMongodb } from "react-icons/di";
 import { IoLogoFirebase } from "react-icons/io5";
 import { DiPostgresql } from "react-icons/di";
 import { FaNodeJs } from "react-icons/fa";
-import { IoLogoVercel } from "react-icons/io5";
 import { FaWpforms } from "react-icons/fa";
 import { FaFlask } from "react-icons/fa";
 export const TechStack = () => {
