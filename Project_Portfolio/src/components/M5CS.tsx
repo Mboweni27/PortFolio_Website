@@ -1,4 +1,4 @@
-import interior from "../assets/BMW-M5-CS-Test-Drive-23-of-40.jpg";
+import interior from "../assets/Screenshot m5 interiorpng.png";
 import { useNavigate } from "react-router-dom";
 import portfolio from "../assets/Screenshot Portfolio.png";
 
@@ -17,10 +17,10 @@ export const M5CS = () => {
       <div
         className="absolute cursor-pointer"
         style={{
-          top: "13.7%",
-          left: "40.5%",
-          width: "18.3%",
-          height: "14%",
+          top: "11.4%",
+          left: "64.9%",
+          width: "26%",
+          height: "20.2%",
           transform: "rotate(1.5deg)",
           border: "2px solid white",
           borderRadius: "2px",
