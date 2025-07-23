@@ -9,9 +9,9 @@ export interface Project {
 }
 export const projs: Project[] = [
   {
-    name: "Game Stash",
+    name: "GameStash",
     image: gamestash,
-    tech: ["TypeScript", "React", "DaisyUI", "CSS"],
+    tech: ["TypeScript", "React", "CSS"],
   },
   {
     name: "IP Conflict",

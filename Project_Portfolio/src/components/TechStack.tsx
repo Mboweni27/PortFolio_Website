@@ -10,16 +10,16 @@ import { FaWpforms } from "react-icons/fa";
 import { FaFlask } from "react-icons/fa";
 export const TechStack = () => {
   const stack = [
-    { icon: <SiPython size={40} />, name: "Python" },
-    { icon: <FaFlask size={40} />, name: "Flask" },
-    { icon: <DiPostgresql size={40} />, name: "PostgreSQL" },
-    { icon: <DiMongodb size={40} />, name: "MongoDB" },
-    { icon: <SiTypescript size={40} />, name: "TypeScript" },
-    { icon: <FaReact size={40} />, name: "React" },
-    { icon: <FaCss3Alt size={40} />, name: "CSS3" },
-    { icon: <FaNodeJs size={40} />, name: "Node.js" },
-    { icon: <IoLogoFirebase size={40} />, name: "Firebase" },
-    { icon: <FaWpforms size={40} />, name: "C# WebForms" },
+    { icon: <SiPython size={50} />, name: "Python" },
+    { icon: <FaFlask size={50} />, name: "Flask" },
+    { icon: <DiPostgresql size={50} />, name: "PostgreSQL" },
+    { icon: <DiMongodb size={50} />, name: "MongoDB" },
+    { icon: <SiTypescript size={50} />, name: "TypeScript" },
+    { icon: <FaReact size={50} />, name: "React" },
+    { icon: <FaCss3Alt size={50} />, name: "CSS3" },
+    { icon: <FaNodeJs size={50} />, name: "Node.js" },
+    { icon: <IoLogoFirebase size={50} />, name: "Firebase" },
+    { icon: <FaWpforms size={50} />, name: "C# WebForms" },
   ];
   return (
     <div className="py-16 px-6 bg-base-100 text-center text-white">
