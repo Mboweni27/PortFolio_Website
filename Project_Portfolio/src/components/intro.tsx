@@ -1,18 +1,21 @@
 import mypic from "../assets/Mb-ACTUALpng.png";
 import { FaLinkedin, FaGithub, FaYoutube, FaDownload } from "react-icons/fa";
 import pdf from "../assets/MbuyeloMboweniCV.pdf";
-import { ColorModeSwitch } from "./ColorModeSwitch";
 import { TechStack } from "./TechStack";
 import { Projects } from "./Projects";
+import Navbar from "./NavBar";
+import AboutMe from "./AboutMe";
+import Education from "./Education";
+import Experience from "./Experience";
+import ContactMe from "./ContactMe";
 
 export const intro = () => {
   return (
     <>
+      <Navbar />
       <div className="relative flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen gap-10 px-4 text-white bg-base-200">
         {/* Color Mode Switch (top-right) */}
-        <div className="absolute top-4 right-4 z-50">
-          <ColorModeSwitch />
-        </div>
+        <div className="absolute top-4 right-4 z-50"></div>
 
         {/* Left: Text content */}
         <div className="text-center lg:text-left text-4xl sm:text-5xl lg:text-6xl font-bold max-w-md">
@@ -69,9 +72,12 @@ export const intro = () => {
         </div>
       </div>
 
-      {/* Tech Stack & Projects */}
       <TechStack />
       <Projects />
+      <AboutMe />
+      <Education />
+      <Experience />
+      <ContactMe />
 
       {/* Space before ChatBot or Footer */}
       <div className="mt-12 mb-12 px-4"></div>
