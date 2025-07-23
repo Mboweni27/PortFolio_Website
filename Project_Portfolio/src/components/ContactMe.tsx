@@ -1,6 +1,6 @@
 export const ContactMe = () => {
   return (
-    <section id="contact" className="max-w-4xl mx-auto px-4 py-16">
+    <section id="ContactMe" className="max-w-4xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold mb-6 text-primary text-center">
         Contact Me
       </h2>

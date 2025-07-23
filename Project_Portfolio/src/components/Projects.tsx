@@ -20,7 +20,7 @@ export interface Project {
 
 export const projs: Project[] = [
   {
-    name: "GameStash",
+    name: "GameStash - Simple website to search games",
     image: gamestash,
     tech: ["TypeScript", "React", "CSS"],
     links: [
@@ -30,7 +30,7 @@ export const projs: Project[] = [
     videos: gamestashVid,
   },
   {
-    name: "IP Conflict Game",
+    name: "IP Conflict  - Topdown shooter arcade game",
     image: gamejam,
     tech: ["GameMaker-Language", "OOP"],
     links: [
@@ -39,11 +39,15 @@ export const projs: Project[] = [
         url: "https://zemushroomman.itch.io/ip-conflict-unconflicted-version",
       },
       { label: "GitHub", url: "https://github.com/Mboweni27/ShooterGame" },
+      {
+        label: "NWU Article",
+        url: "https://news.nwu.ac.za/nwu-students-shine-48-hour-arcademia-game-jam",
+      },
     ],
     videos: gamejamVid,
   },
   {
-    name: "Trading History",
+    name: "Trading Tracker - Logs and pulls trade performance ",
     image: tradhis,
     tech: [".NET", "WPF", "Python", "postgreSQL"],
     links: [
@@ -52,11 +56,12 @@ export const projs: Project[] = [
     videos: tradhisVid,
   },
   {
-    name: "Messaging App",
+    name: "Messaging App - Real time app with group chats",
     image: messApp,
     tech: ["JavaScript", "React", "CSS", "FireBase"],
     links: [
       { label: "GitHub", url: "https://github.com/Mboweni27/Messaging-App" },
+      { label: "YouTube", url: "https://www.youtube.com/watch?v=8WSSvMK9mZA" },
     ],
     videos: messAppVid,
   },
@@ -75,9 +80,12 @@ export const projs: Project[] = [
 export const Projects = () => {
   return (
     <>
-      <div className="py-16 px-6 bg-base-100 text-center text-white">
+      <section
+        id="Projects"
+        className="py-16 px-6 bg-base-100 text-center text-white"
+      >
         <h2 className="text-3xl font-bold mb-8 text-primary">Projects</h2>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {projs.map((project, index) => (
             <div
               key={index}
@@ -139,7 +147,7 @@ export const Projects = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 };
