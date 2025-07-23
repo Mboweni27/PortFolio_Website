@@ -5,7 +5,7 @@ export const ContactMe = () => {
         Contact Me
       </h2>
       <ul className="text-white space-y-2 text-lg text-center">
-        <li>📞 Phone: +27 67 007 2746</li>
+        <li>📞 Phone: 067 007 2746</li>
         <li>📧 Email: batlilemboweni@gmail.com</li>
         <li>📍 Location: Centurion, Gauteng</li>
         <li>🎂 Age: 20 (Born 2004)</li>

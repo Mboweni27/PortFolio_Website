@@ -45,9 +45,8 @@ export const AboutMe = () => {
             Interests & Records
           </h3>
           <ul className="list-disc list-inside text-gray-300 space-y-1">
-            <li>🏃 Running PB: 3.5 km in 14:30</li>
+            <li>🏃 Running PB: 3.5 km in 14:33</li>
             <li>💪 95th percentile worldwide for consecutive pull-ups</li>
-            <li>🎯 Current fitness goal: 30 pull-ups in a row</li>
             <li>🎮 Passionate about gaming, coding, and learning AI</li>
             <li>🚗 Car enthusiast</li>
             <li>📚 Lifelong learner with a growth mindset</li>

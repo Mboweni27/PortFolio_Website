@@ -85,7 +85,7 @@ export const Projects = () => {
         className="py-16 px-6 bg-base-100 text-center text-white"
       >
         <h2 className="text-3xl font-bold mb-8 text-primary">Projects</h2>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {projs.map((project, index) => (
             <div
               key={index}
