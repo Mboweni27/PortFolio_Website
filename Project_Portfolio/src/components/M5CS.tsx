@@ -1,6 +1,7 @@
 import interior from "../assets/Screenshot m5 interiorpng.png";
 import portfolio from "../assets/Screenshot of-Portfolio.png";
 import { useState, useEffect } from "react";
+import Intro from "./intro"; // Import Intro component
 
 export const M5CS = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -8,32 +9,32 @@ export const M5CS = () => {
   // On small screens (<768px) start zoomed and showing portfolio automatically
   const [zoomed, setZoomed] = useState(window.innerWidth < 768);
   const [showPortfolio, setShowPortfolio] = useState(window.innerWidth < 768);
-  const [superZoom, setSuperZoom] = useState(false);
+
+  // State to toggle inline Intro component rendering instead of preview image
+  const [showIntroInline, setShowIntroInline] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    // If resizing to small screen, auto enable zoomed/showPortfolio
+    // If resizing to small screen, set zoomed/showPortfolio and clear inline display
     if (window.innerWidth < 768) {
       setZoomed(true);
       setShowPortfolio(true);
+      setShowIntroInline(false); // reset inline intro
     }
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // When clicking tablet, show inline Intro (instead of preview image)
   const handleClick = () => {
+    setShowIntroInline(true);
     setZoomed(true);
     setShowPortfolio(true);
   };
 
-  const handleIframeClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!superZoom) setSuperZoom(true);
-  };
-
-  // Disable scrolling on main view when zoomed in (except iframe)
+  // Disable scrolling when zoomed in (same as before)
   useEffect(() => {
     if (zoomed && !showPortfolio) {
       document.body.style.overflow = "hidden";
@@ -48,24 +49,23 @@ export const M5CS = () => {
     };
   }, [zoomed, showPortfolio]);
 
+  // If on mobile, render Intro full screen only
+  if (windowWidth < 768) {
+    return (
+      <div className="w-screen h-screen overflow-auto bg-base-200">
+        <Intro />
+      </div>
+    );
+  }
+
+  // Desktop/tablet rendering with M5 dashboard
   // Responsive zoom + pan transform logic
   let povTransform = "scale(1) translate(0, 0)";
-  if (zoomed && !superZoom) {
-    if (windowWidth < 768) {
-      povTransform = "scale(1) translate(0, 0)"; // small screen - no zoom transform
-    } else if (windowWidth >= 768 && windowWidth < 1024) {
-      povTransform = "scale(2.5) translate(18%, 10%)"; // medium screens
-    } else {
-      povTransform = "scale(3) translate(-17%, 10%)"; // large screens
-    }
-  }
-  if (superZoom) {
-    if (windowWidth < 768) {
-      povTransform = "scale(1) translate(0, 0)"; // keep no zoom for small + superZoom
-    } else if (windowWidth >= 768 && windowWidth < 1024) {
-      povTransform = "scale(3.5) translate(-20%, 0%)";
-    } else {
-      povTransform = "scale(3.35) translate(-17%, -10%)";
+  if (zoomed) {
+    if (windowWidth >= 768 && windowWidth < 1024) {
+      povTransform = "scale(2.5) translate(18%, 10%)";
+    } else if (windowWidth >= 1024) {
+      povTransform = "scale(3) translate(-17%, 10%)";
     }
   }
 
@@ -76,6 +76,9 @@ export const M5CS = () => {
     "md:top-[22%] md:left-[22%] md:w-[35%] md:h-[12%] " +
     "lg:top-[10.1%] lg:left-[64.9%] lg:w-[26%] lg:h-[22.2%] " +
     "transition-all duration-500 cursor-pointer z-50";
+
+  // Scale factor for the Intro component inside tablet (adjust here)
+  const introScale = 0.3;
 
   return (
     <div
@@ -97,56 +100,28 @@ export const M5CS = () => {
 
         <div
           className={tabletPosition}
-          onClick={windowWidth >= 768 ? handleClick : undefined} // disable click on small screens
+          onClick={windowWidth >= 768 ? handleClick : undefined} // enable click on desktop/tablet only
           style={{
             transform: "rotateZ(1deg)",
             transformOrigin: "center center",
             transition: "transform 0.3s ease",
-            ...(windowWidth < 768
-              ? {
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  border: "none",
-                  borderRadius: 0,
-                  zIndex: 1000,
-                  cursor: "default",
-                  transform: "rotateZ(0deg)", // no tilt on phone
-                }
-              : {}),
           }}
         >
-          {showPortfolio ? (
+          {showIntroInline ? (
+            // Render Intro inline inside tablet div WITH SCALE
             <div
-              className="w-full h-full origin-top-left"
-              style={
-                windowWidth < 768
-                  ? { transform: "scale(1)", width: "100%", height: "100%" }
-                  : {
-                      transform: "scale(0.40)",
-                      width: "254.11%",
-                      height: "250.11%",
-                    }
-              }
+              className="w-full h-full overflow-auto bg-base-200"
+              style={{
+                transform: `scale(${introScale})`,
+                transformOrigin: "top left",
+                width: `${100 / introScale}%`, // compensate for scaling horizontally
+                height: `${100 / introScale}%`, // compensate for scaling vertically
+              }}
             >
-              <iframe
-                src="https://project-portfolio-sable-one.vercel.app/portfolio"
-                title="My Portfolio"
-                className="w-full h-full"
-                frameBorder="0"
-                allowFullScreen
-                onClick={handleIframeClick}
-                style={{
-                  cursor: superZoom ? "default" : "zoom-in",
-                  pointerEvents: "auto",
-                  border: "none",
-                  transformOrigin: "top left",
-                }}
-              />
+              <Intro />
             </div>
           ) : (
+            // Show portfolio preview image
             <img
               src={portfolio}
               alt="My Portfolio Preview"
