@@ -6,7 +6,6 @@ import Intro from "./intro";
 export const M5CS = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [zoomed, setZoomed] = useState(window.innerWidth < 768);
-  const [showPortfolio, setShowPortfolio] = useState(window.innerWidth < 768);
   const [showIntroInline, setShowIntroInline] = useState(false);
 
   // Update window size
@@ -16,7 +15,6 @@ export const M5CS = () => {
       setWindowWidth(width);
       if (width < 768) {
         setZoomed(true);
-        setShowPortfolio(true);
         setShowIntroInline(false);
       }
     };
@@ -24,30 +22,33 @@ export const M5CS = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Lock ALL scroll except inside Intro
+  // Lock scroll unless Intro inline is visible on desktop/tablet
   useEffect(() => {
-    const lockScroll = () => {
+    const shouldLockScroll = windowWidth >= 768 && !showIntroInline;
+
+    if (shouldLockScroll) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
       document.body.style.height = "100vh";
       document.documentElement.style.height = "100vh";
-    };
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.height = "";
+      document.documentElement.style.height = "";
+    }
 
-    const unlockScroll = () => {
+    return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
       document.body.style.height = "";
       document.documentElement.style.height = "";
     };
-
-    lockScroll();
-    return unlockScroll;
-  }, []);
+  }, [windowWidth, showIntroInline]);
 
   const handleClick = () => {
     setShowIntroInline(true);
     setZoomed(true);
-    setShowPortfolio(true);
   };
 
   // Zoom styles
