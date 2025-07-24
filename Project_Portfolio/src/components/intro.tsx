@@ -1,4 +1,4 @@
-import mypic from "../assets/Mb-ACTUALpng.png";
+import mypic from "../assets/Mb-ACTUALpng.webp";
 import { FaLinkedin, FaGithub, FaYoutube, FaDownload } from "react-icons/fa";
 import pdf from "../assets/MbuyeloMboweniCV.pdf";
 import { TechStack } from "./TechStack";
@@ -51,7 +51,7 @@ export const intro = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-circle btn-outline w-12 h-12 border-2"
-              onMouseEnter={() => handleHoverTheme("nord")}
+              onMouseEnter={() => handleHoverTheme("dim")}
               onMouseLeave={handleResetTheme}
             >
               <FaGithub size={30} />

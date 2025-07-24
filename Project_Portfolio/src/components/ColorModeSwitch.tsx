@@ -22,8 +22,8 @@ export const ColorModeSwitch = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Nord"
-            value="nord"
+            aria-label="Dark"
+            value="dark"
           />
         </li>
         <li>
@@ -31,8 +31,8 @@ export const ColorModeSwitch = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Retro"
-            value="retro"
+            aria-label="Synthwave"
+            value="synthwave"
           />
         </li>
         <li>
@@ -40,19 +40,11 @@ export const ColorModeSwitch = () => {
             type="radio"
             name="theme-dropdown"
             className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Cyberpunk"
-            value="cyberpunk"
+            aria-label="Dim"
+            value="dim"
           />
         </li>
-        <li>
-          <input
-            type="radio"
-            name="theme-dropdown"
-            className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-            aria-label="Valentine"
-            value="valentine"
-          />
-        </li>
+
         <li>
           <input
             type="radio"
