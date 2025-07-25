@@ -20,8 +20,11 @@ export const AboutMe = () => {
 
       <p className="mb-6 text-gray-300 text-lg leading-relaxed">
         Outside of coding and fitness, I serve as an academic advisor for my
-        residence, Green Residence, supporting fellow students and fostering a
-        positive learning environment.
+        residence, Green Meadows Residence, supporting fellow students and
+        fostering a positive learning environment. I also play touch rugby for
+        our residence team and am currently working towards being one of the
+        best players in the squad—because I believe in giving my all, whether
+        it's on the field, in the gym, or behind the screen.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

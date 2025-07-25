@@ -68,12 +68,12 @@ export const projs: Project[] = [
   {
     name: "Coming Soon",
     image: coming,
-    tech: ["Python", "Flask"],
+    tech: ["Python", "Computer Vision", "MediaPipe"],
   },
   {
     name: "Coming Soon",
     image: coming2,
-    tech: ["C++"],
+    tech: ["C++", "ImGui"],
   },
 ];
 
