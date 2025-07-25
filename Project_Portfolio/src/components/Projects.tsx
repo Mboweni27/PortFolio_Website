@@ -117,7 +117,7 @@ export const Projects = () => {
 
               <div className="card-body">
                 <h2 className="card-title">{project.name}</h2>
-                <div className="flex flex-wrap gap-2 text-sm">
+                <div className="flex flex-wrap gap-2 text-sm justify-center">
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
