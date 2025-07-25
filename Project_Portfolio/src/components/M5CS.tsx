@@ -5,7 +5,7 @@ import Intro from "./intro";
 
 export const M5CS = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [zoomed, setZoomed] = useState(window.innerWidth < 768);
+  const [zoomed, setZoomed] = useState(window.innerWidth < 768); // can keep or tweak
   const [showIntroInline, setShowIntroInline] = useState(false);
 
   // Update window size
@@ -13,8 +13,10 @@ export const M5CS = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       setWindowWidth(width);
-      if (width < 768) {
-        setZoomed(true);
+
+      // On resize, reset zoom/showIntroInline according to new width
+      if (width < 1024) {
+        setZoomed(false);
         setShowIntroInline(false);
       }
     };
@@ -22,9 +24,9 @@ export const M5CS = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Lock scroll unless Intro inline is visible on desktop/tablet
+  // Lock scroll only on large screens and when intro inline not shown
   useEffect(() => {
-    const shouldLockScroll = windowWidth >= 768 && !showIntroInline;
+    const shouldLockScroll = windowWidth >= 1024 && !showIntroInline;
 
     if (shouldLockScroll) {
       document.body.style.overflow = "hidden";
@@ -51,14 +53,10 @@ export const M5CS = () => {
     setZoomed(true);
   };
 
-  // Zoom styles
+  // Zoom styles only on large screens
   let povTransform = "scale(1) translate(0, 0)";
-  if (zoomed) {
-    if (windowWidth >= 768 && windowWidth < 1024) {
-      povTransform = "scale(2.5) translate(18%, 10%)";
-    } else if (windowWidth >= 1024) {
-      povTransform = "scale(3) translate(-17%, 10%)";
-    }
+  if (zoomed && windowWidth >= 1024) {
+    povTransform = "scale(3) translate(-17%, 10%)";
   }
 
   const introScale = 0.3;
@@ -71,8 +69,8 @@ export const M5CS = () => {
     "lg:top-[10.1%] lg:left-[64.9%] lg:w-[26%] lg:h-[22.2%] " +
     "transition-all duration-500 cursor-pointer z-50";
 
-  // Mobile override: show Intro as fullscreen scrollable
-  if (windowWidth < 768) {
+  // For anything smaller than lg, show fullscreen Intro like mobile
+  if (windowWidth < 1024) {
     return (
       <div className="w-screen h-screen overflow-auto bg-base-200">
         <Intro />
@@ -80,6 +78,7 @@ export const M5CS = () => {
     );
   }
 
+  // For lg and up, show zoomed BMW + tablet area
   return (
     <div
       className="fixed top-0 left-0 w-screen h-screen overflow-hidden"
@@ -101,7 +100,7 @@ export const M5CS = () => {
         {/* Tablet Area */}
         <div
           className={tabletPosition}
-          onClick={windowWidth >= 768 ? handleClick : undefined}
+          onClick={windowWidth >= 1024 ? handleClick : undefined}
           style={{
             transform: "rotateZ(1deg)",
             transformOrigin: "center center",
