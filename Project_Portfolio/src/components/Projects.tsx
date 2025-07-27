@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 import gamestash from "../assets/game-hub.webp";
-import gamestashVid from "../assets/Videos/Embedded Video For GameStash.mp4";
+import gamestashVid from "../assets/Videos/Compressed Embedded Video For GameStash (1).mp4";
 import gamejam from "../assets/gameJAm.webp";
-import gamejamVid from "../assets/Videos/Embedded Video of GameJam.mp4";
+import gamejamVid from "../assets/Videos/Compressed Embedded Video of GameJam (1).mp4";
 import tradhis from "../assets/Screenshot of TradHistory.webp";
-import tradhisVid from "../assets/Videos/Embedded Vidoe of Trading App.mp4";
+import tradhisVid from "../assets/Videos/Compressed Embedded Vidoe of Trading App (1).mp4";
 import messApp from "../assets/MessagingApp.webp";
-import messAppVid from "../assets/Videos/Embedded Video of Messaging App.mp4";
+import messAppVid from "../assets/Videos/Compressed Embedded Video of Messaging App (1).mp4";
 
 import coming from "../assets/peepo.webp";
 import coming2 from "../assets/PEEPO2.webp";
