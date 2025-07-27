@@ -90,8 +90,12 @@ export const intro = () => {
         </div>
 
         {/* Profile Image */}
-        <div className="w-56 h-56 sm:w-72 sm:h-72 lg:w-[350px] lg:h-[350px] rounded-3xl overflow-hidden">
-          <img src={mypic} alt="me" className="w-full h-full object-cover" />
+        <div className="w-56 h-56 sm:w-72 sm:h-72 lg:w-[400px] lg:h-[400px] overflow-hidden">
+          <img
+            src={mypic}
+            alt="me"
+            className="w-full h-full object-cover rounded-4xl"
+          />
         </div>
       </div>
 
