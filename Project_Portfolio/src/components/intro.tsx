@@ -1,6 +1,6 @@
 import mypic from "../assets/Mb-ACTUALpng.webp";
 import { FaLinkedin, FaGithub, FaYoutube, FaDownload } from "react-icons/fa";
-import pdf from "../assets/MboweniCV.pdf";
+import pdf from "../assets/MbowenisCV.pdf";
 import { TechStack } from "./TechStack";
 import { Projects } from "./Projects";
 import Navbar from "./NavBar";
